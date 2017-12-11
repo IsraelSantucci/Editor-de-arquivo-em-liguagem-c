@@ -1,1 +1,0 @@
-# Editor-de-arquivo-em-liguagem-c
