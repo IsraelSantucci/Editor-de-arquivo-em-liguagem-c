@@ -1,6 +1,6 @@
 
 /*================================================*
- * Programa   - Edior de arquivo                         |
+ * Programa   - Editor de Arquivo                         |
  * Versao - 1.0                                   |
  * Autor  - Israel Santucci                         |
  *================================================*/
@@ -8,6 +8,43 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <windows.h>
+
+//Declaracao das Funcoes
+void apresentacao();
+int menu();
+int main();
+void criarArquivo();
+void abrirArquivo();
+void editarArquivo();
+
+int main(HANDLE cor1){
+    int escolha=0;;
+    HANDLE cor = GetStdHandle(STD_OUTPUT_HANDLE);
+    fflush(stdin);
+    while(escolha != 4){
+        escolha = menu(cor);
+        fflush(stdin);
+        //Abrir arquivo
+        if(escolha == 1){
+            abrirArquivo();
+        }
+
+        //Editar arquivo
+        if(escolha == 2){
+            editarArquivo();
+        }
+
+        //Criar
+        if(escolha == 3){
+            criarArquivo();
+        }
+    }
+    printf("\n\n\n Finalizando ....");
+    Sleep(1000);
+
+    //getchar();
+    return 0;
+}
 
 // Apresentacao do programa
 void apresentacao(){
@@ -97,35 +134,5 @@ void editarArquivo(){
     }
 
     fclose(arquivo);
-}
-
-int main()
-{
-    int escolha=0;;
-    HANDLE cor = GetStdHandle(STD_OUTPUT_HANDLE);
-    fflush(stdin);
-    while(escolha != 4){
-        escolha = menu(cor);
-        fflush(stdin);
-        //Abrir arquivo
-        if(escolha == 1){
-            abrirArquivo();
-        }
-
-        //Editar arquivo
-        if(escolha == 2){
-            editarArquivo();
-        }
-
-        //Criar
-        if(escolha == 3){
-            criarArquivo();
-        }
-    }
-    printf("\n\n\n Finalizando ....");
-    Sleep(1000);
-
-    //getchar();
-    return 0;
 }
 
